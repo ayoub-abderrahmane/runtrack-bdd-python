@@ -1,0 +1,1 @@
+mysql> SELECT MIN(age) FROM etudiant;
