@@ -1,0 +1,1 @@
+mysql> SELECT MAX(age) FROM etudiant;
