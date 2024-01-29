@@ -1,2 +1,2 @@
-mysql> SELECT * FROM etudiant
-    -> ORDER BY age;
+SELECT * FROM etudiants
+WHERE age <= 18
