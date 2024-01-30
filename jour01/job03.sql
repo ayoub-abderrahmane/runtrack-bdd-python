@@ -8,3 +8,5 @@ mysql> CREATE TABLE etudiant (
     -> );
 
 mysql> SHOW TABLES;
+
+# Permet de créer la Table etudiant et ses collones
