@@ -25,28 +25,31 @@ class employe():
     def read(self):
         cursor = mydb.cursor()
         cursor.execute("SELECT * FROM employe")
-        result = cursor.fetchall()
-        print(result)
+        for (id ,nom ,prenom ,salaire ,id_service) in cursor:
+            print(f"ID :{id} ,NOM :{nom} ,PRENOM :{prenom} ,SALAIRE :{salaire}")
 
-    def update(self ,colonne , valeur ,id):
+    def update(self , valeur ,id):
         cursor = mydb.cursor()
         cursor.execute("""
                 UPDATE employe
-                SET """ colonne = valeur
-                WHERE id = id     
-                )
+                SET nom = %s
+                WHERE id = %s     
+            """ , (valeur ,id))
         mydb.commit()
 
     def delete(self , id):
         cursor = mydb.cursor()
         cursor.execute("""
                 DELETE FROM employe
-                WHERE id = """ ,(id))
-
+                WHERE id = %s 
+                """ ,(id,))
+        mydb.commit()
 
 test = employe()
 # test.create("Reus" ,"Marco" ,5400)
-test.delete(4)
+# test.update('boingz' ,4)
+# test.read()
+test.delete(6)
 
 
 mydb.close()
